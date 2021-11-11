@@ -10,11 +10,7 @@ pipeline {
     tools {
         maven 'localmaven'
     }
-    stage('Email Notification') {
-        steps {
-           emailext body: 'Dev job deployed successfully', subject: 'Dev Job', to: 'bhagyashreeshirodkar@gmail.com'
-        }
-        }
+ 
     stages {
         stage('Build maven') {
             steps {
@@ -50,6 +46,11 @@ pipeline {
                     }
                 }
             }
-        }      
+        }  
+        stage('Email Notification') {
+            steps {
+                emailext body: 'Dev job deployed successfully', subject: 'Dev Job', to: 'bhagyashreeshirodkar@gmail.com'
+             }
+         }
     }
 }
