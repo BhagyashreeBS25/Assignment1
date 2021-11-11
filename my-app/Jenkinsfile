@@ -6,6 +6,9 @@ pipeline {
     triggers {
   pollSCM '0 * * * *'
 }
+    triggers {
+  cron '*/1 * * * *'
+}
     tools {
         maven 'localmaven'
     }
