@@ -11,7 +11,9 @@ pipeline {
         maven 'localmaven'
     }
     stage('Email Notification') {
-          emailext body: 'Testing Develpoment Job', subject: 'Dev Job', to: 'bhagyashreeshirodkar@gmail.com'
+        steps {
+           emailext body: 'Dev job deployed successfully', subject: 'Dev Job', to: 'bhagyashreeshirodkar@gmail.com'
+        }
         }
     stages {
         stage('Build maven') {
