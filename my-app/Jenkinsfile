@@ -49,8 +49,8 @@ pipeline {
         }  
         stage('Email Notification') {
             steps {
-                 emailext body: '''SUCCESSFUL: Job ${env.JOB_NAME} ${env.BUILD_NUMBER}
-        Check console output at ${env.BUILD_URL} ${env.JOB_NAME} [${env.BUILD_NUMBER}]''', recipientProviders: [developers()], subject: 'SUCCESSFUL: Job Dev.${env.JOB_NAME} ${env.BUILD_NUMBER}', to: 'bhagyashreeshirodkar@gmail.com'
+                 emailext body: '''SUCCESSFUL: Job ${JOB_NAME} ${BUILD_NUMBER}
+        Check console output at ${BUILD_URL} ${JOB_NAME} ${BUILD_NUMBER}''', recipientProviders: [developers()], subject: 'SUCCESSFUL: Job Dev.${JOB_NAME}', to: 'bhagyashreeshirodkar@gmail.com'
              }
          }
     }
