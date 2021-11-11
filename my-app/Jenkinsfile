@@ -46,8 +46,6 @@ pipeline {
                 }
             }
         }
-        stage('Email Notification') {
-                mail bcc: '', body: 'Package has been build using Maven', cc: '', from: '', replyTo: '', subject: 'Development Job', to: 'bhagyashreeshirodkar@gmail.com'
-            }
+       
     }
 }
