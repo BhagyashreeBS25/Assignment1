@@ -45,5 +45,14 @@ pipeline {
                 }
             }
         }
+        stage('Email Notification') {
+            steps {
+                 emailext mimeType: 'text/html',
+             subject: "[Jenkins]${currentBuild.fullDisplayName}",
+             to: "bhayashreeshirodkar@gmail.com",
+             body: '''<a href="${BUILD_URL}input">click to approve</a>'''
+             }
+         }
+        
     }
 }
