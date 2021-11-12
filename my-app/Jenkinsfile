@@ -23,8 +23,8 @@ pipeline {
         stage('SonarQube Analysis') {
             steps {
                 withSonarQubeEnv('SonarQube_Server') { 
-                    sh "/opt/sonar-scanner/bin"
-                    sh "mvn -f my-app/pom.xml -Dmaven.test.failure.ignore=true clean package sonar:sonar"
+      
+                    sh '/usr/share/maven/bin/mvn sonar:sonar'
                 }
             }
        }
