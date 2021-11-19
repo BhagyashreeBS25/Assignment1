@@ -31,7 +31,7 @@ pipeline {
          stage('Scan Code') {
                 steps {
                     withSonarQubeEnv('SonarQube_Server') {
-                        sh '/opt/maven/bin/mvn clean verify sonar:sonar -Dmaven.test.skip=true'
+                        sh 'mvn -f my-app/pom.xml -Dmaven.test.failure.ignore=true clean package sonar:sonar'
                         }
                     }
                 }
