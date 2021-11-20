@@ -7,7 +7,7 @@ pipeline {
         stage('Build maven') {
             steps {
                 checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'GIT_Creds', url: 'https://github.com/BhagyashreeBS25/Assignment1.git']]])
-                sh 'mvn -f my-app/pom.xml -Dmaven.test.failure.ignore=true clean package'
+                sh 'mvn -f my-app/pom.xml -Dmaven.test.failure.ignore=true clean test package'
                 
             }
             
