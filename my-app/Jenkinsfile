@@ -38,6 +38,9 @@ pipeline {
         
         stage('Build Docker Image') {
             steps {
+                 timeout(time:5, unit:'DAYS'){
+                    input message:'Approve PRODUCTION Deployment?'
+                 }
                 script {
                     sh 'docker build -t bhagyshree25/hello-world-1.0 ./my-app'
                 }
